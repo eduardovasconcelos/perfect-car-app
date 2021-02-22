@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-light">	  
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="usuariosDropdown" role="button"data-bs-toggle="dropdown" aria-expanded="false">Usuários</a>      
+            <ul class="dropdown-menu" aria-labelledby="mercadoriasDropdown">
+                <li><a class="dropdown-item" href="#">Listar</a></li>
+                <li><a class="dropdown-item" href="#">Cadastrar</a></li>                
+            </ul>  
+        </li>		            
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="mercadoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Mercadorias
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="mercadoriasDropdown">
+              <li><a class="dropdown-item" href="#">Listar</a></li>
+              <li><a class="dropdown-item" href="#">Recebimento</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Necessidade</a></li>
+            </ul>
+          </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="estoquesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Estoque
+            </a>      
+            <ul class="dropdown-menu" aria-labelledby="estoquesDropdown">
+                <li><a class="dropdown-item" href="#">Listar</a></li>
+                <li><a class="dropdown-item" href="#">Cadastrar</a></li>
+                <li><a class="dropdown-item" href="#">Baixar</a></li>                
+              </ul>  
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="financeiroDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Financeiro
+            </a>        
+        </li>
+    </ul>   
+    </div>
+    <label class="text-white mr-5">| Bem vindo,  Carlos Henrique |</label>
+    <a class="nav-link float-right" (click)="logout()">Sair</a>
+</nav>

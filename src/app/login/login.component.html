@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div class="wrapper ">
+    <div id="formContent">
+    <div class="first">
+        <img 
+            class="logo" 
+            src="/assets/images/logo.png" 
+            width="232" height="78">
+    </div>
+
+    <form method="post" action="login">
+        <input type="text" id="username" name="username" placeholder="login" maxlength="30" required>
+        <input type="password" id="password" name="password" placeholder="senha" maxlength="20" required>
+        <input type="submit" name="login" value="Entrar" (click)="doLogin()">
+    </form>
+
+    <div id="formFooter" *ngIf="error"> 
+        <p class="dados-incorretos mt-0">{{mensagem}}</p>
+    </div>
+    
+    </div>
+</div>
