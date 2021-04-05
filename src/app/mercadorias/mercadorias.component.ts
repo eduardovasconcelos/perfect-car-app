@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../rest.service';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Mercadoria } from '../model/mercadoria';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-mercadorias',
@@ -14,10 +13,10 @@ export class MercadoriasComponent implements OnInit {
   path = '/perfect-car/mercadorias/';  
   mercadoria = {} as Mercadoria ;
   isEdit: boolean = false;
+  mensagem: boolean = false;
 
   constructor(private restService: RestService,
-    private route: ActivatedRoute,
-    private router: Router) {
+    private route: ActivatedRoute) {
      }
 
   ngOnInit(): void {
@@ -38,18 +37,18 @@ export class MercadoriasComponent implements OnInit {
    addMercadoria() {
      if (this.isEdit) {
        this.restService.patch(this.path, this.mercadoria).subscribe(() => {
-         this.mercadoria = null;
-         this.router.navigate(["/mercadorias-list"]);
+         this.mensagem = true;
        }, error => {
          console.log('ERRO');
        });
      } else {
        this.restService.post(this.path, this.mercadoria).subscribe(() => {
-         this.mercadoria = null;
-         this.router.navigate(["/mercadorias-list"]);
+        this.mensagem = true;
        }, error => {
          console.log('ERRO');
        });
      }
+
+     this.mercadoria = {} as Mercadoria ;
    }
 }

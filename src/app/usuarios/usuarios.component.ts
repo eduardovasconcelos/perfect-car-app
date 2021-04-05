@@ -11,14 +11,15 @@ import { RestService } from '../rest.service';
 export class UsuariosComponent implements OnInit {
 
   path = '/perfect-car/usuarios/';  
-  usuario = {} as Usuario ;
+  usuario = {} as Usuario;
   isEdit: boolean = false;
+  mensagem: boolean;
 
   constructor(private restService: RestService,
-    private route: ActivatedRoute,
-    private router: Router) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.mensagem = false;
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
@@ -37,18 +38,18 @@ export class UsuariosComponent implements OnInit {
   addUsuario() {
     if (this.isEdit) {
       this.restService.patch(this.path, this.usuario).subscribe(() => {
-        this.usuario = null;
-        this.router.navigate(["/usuarios-list"]);
+        this.mensagem = true;
       }, error => {
         console.log('ERRO');
       });
     } else {
       this.restService.post(this.path, this.usuario).subscribe(() => {
-        this.usuario = null;
-        this.router.navigate(["/usuarios-list"]);
+        this.mensagem = true;
       }, error => {
         console.log('ERRO');
       });
     }
+
+    this.usuario = {} as Usuario;
   }
 }

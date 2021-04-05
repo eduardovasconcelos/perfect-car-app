@@ -3,3 +3,6 @@ button, button:hover, button:visited, button:focus {
     border-color: rgb(255, 95, 17);
 }
 
+.margem-alerta {
+    margin-top: 4rem!important;
+}
