@@ -1,0 +1,30 @@
+<app-home></app-home>
+
+<div class="container">
+    <h2 class="mt-3">Cadastrar Receita</h2>
+    <form >
+        <div class="form-group mt-3">
+          <label for="descricao">Descrição</label>
+          <input type="text" class="form-control" id="descricao" name="receita.description" placeholder="Descrição da receita" maxlength="50" [(ngModel)]="receita.description">
+        </div>
+        <div class="form-group mt-3">
+            <label for="tipo">Tipo</label>
+            <select id="tipo" class="form-control form-select" name="receita.name" [(ngModel)]="receita.name">
+                <option selected>Escolha...</option>
+                <option>Funalaria</option>
+                <option>Recuperação</option>
+                <option>Pintura</option>
+                <option>Lavagem</option>
+                <option>Reparo Completo</option>
+                <option>Outros</option>
+              </select>
+        </div>
+        <div class="form-group mt-3">
+            <label for="valor">Valor</label>
+            <input type="text" class="form-control" id="valor" name="receita.price" [(ngModel)]="receita.price">
+        </div>
+        <div class="form-group mt-3 right">
+            <button class="btn btn-primary float-right" (click)="addReceita()">Cadastrar</button>
+        </div>
+    </form>
+</div>

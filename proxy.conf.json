@@ -1,0 +1,11 @@
+{
+    "/perfect-car/*": {
+      "target": "http://ec2-54-158-210-102.compute-1.amazonaws.com:8080/perfect-car/",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/perfect-car": ""
+      }
+    }
+  }

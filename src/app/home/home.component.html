@@ -7,38 +7,34 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="usuariosDropdown" role="button"data-bs-toggle="dropdown" aria-expanded="false">Usuários</a>      
             <ul class="dropdown-menu" aria-labelledby="mercadoriasDropdown">
-                <li><a class="dropdown-item" href="#">Listar</a></li>
-                <li><a class="dropdown-item" href="#">Cadastrar</a></li>                
+                <li><a class="dropdown-item" routerLink="/usuarios-list">Listar</a></li>
+                <li><a class="dropdown-item" routerLink="/usuarios">Cadastrar</a></li>                
             </ul>  
         </li>		            
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="mercadoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" id="mercadoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Mercadorias
             </a>
             <ul class="dropdown-menu" aria-labelledby="mercadoriasDropdown">
-              <li><a class="dropdown-item" href="#">Listar</a></li>
-              <li><a class="dropdown-item" href="#">Recebimento</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Necessidade</a></li>
+              <li><a class="dropdown-item" routerLink="/mercadorias-list">Listar</a></li>
+              <li><a class="dropdown-item" routerLink="/mercadorias">Recebimento</a></li>    
             </ul>
-          </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="estoquesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Estoque
-            </a>      
-            <ul class="dropdown-menu" aria-labelledby="estoquesDropdown">
-                <li><a class="dropdown-item" href="#">Listar</a></li>
-                <li><a class="dropdown-item" href="#">Cadastrar</a></li>
-                <li><a class="dropdown-item" href="#">Baixar</a></li>                
-              </ul>  
-        </li>
+          </li>        
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="financeiroDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Financeiro
-            </a>        
+            </a>      
+            <ul class="dropdown-menu" aria-labelledby="estoquesDropdown">
+                <li><a class="dropdown-item" routerLink="/receitas-list">Receitas</a></li>
+                <li><a class="dropdown-item" routerLink="/despesas-list">Despesas</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Ordem de Serviço</a></li>
+                <li><a class="dropdown-item" href="#">Balanço</a></li>
+            </ul>   
         </li>
     </ul>   
     </div>
     <label class="text-white mr-5">| Bem vindo,  Carlos Henrique |</label>
     <a class="nav-link float-right" (click)="logout()">Sair</a>
 </nav>
+<router-outlet></router-outlet>

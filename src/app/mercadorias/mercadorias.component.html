@@ -1,0 +1,32 @@
+<app-home></app-home>
+
+<div class="container">
+    <h2 class="mt-3">Cadastrar Mercadoria</h2>
+    <form >
+        <div class="form-group mt-3">
+          <label for="name">Nome</label>
+          <input type="text" class="form-control" name="mercadoria.name" [(ngModel)]="mercadoria.name" id="name" placeholder="Nome da peça" maxlength="50" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="stock">Quantidade</label>
+            <input type="number" class="form-control" name="mercadoria.stock" [(ngModel)]="mercadoria.stock" id="stock" min="1" max="999" required>
+        </div>
+        <div class="form-group mt-3">
+            <label for="price">Valor</label>
+            <input type="text" class="form-control" id="price" name="mercadoria.price" [(ngModel)]="mercadoria.price" required>
+        </div>
+        <!--<div class="form-group mt-3">
+            <label for="recebimento">Data de Recebimento</label>
+            <div class="input-group">
+                <input class="form-control" placeholder="dd-mm-yyyy"
+                       name="recebimento" [(ngModel)]="recebimento" ngbDatepicker #d="ngbDatepicker">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                </div>
+              </div>
+        </div> -->
+        <div class="form-group mt-3 right">
+            <button class="btn btn-primary float-right" (click)="addMercadoria()">Cadastrar</button>
+        </div>
+    </form>
+</div>
