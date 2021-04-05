@@ -14,7 +14,7 @@
           <th scope="col">Descrição</th>
           <th scope="col" class="tamanho-160 text-center">Tipo</th>
           <th scope="col" class="tamanho-160 text-center">Data de Entrada</th>
-          <th scope="col" class="tamanho-100 text-center">Preço</th>
+          <th scope="col" class="tamanho-160 text-center">Preço</th>
           <th scope="col" class="tamanho-80"></th>
         </tr>
         </thead>
@@ -24,7 +24,7 @@
           <td><ngb-highlight [result]="despesa.description" [term]="filter.value"></ngb-highlight></td>
           <td class="text-center"><ngb-highlight [result]="despesa.name" [term]="filter.value"></ngb-highlight></td>
           <td class="text-center"><ngb-highlight [result]="despesa.created | date:'dd/MM/yyyy'" [term]="filter.value"></ngb-highlight></td>
-          <td class="text-right"><ngb-highlight [result]="despesa.price" [term]="filter.value"></ngb-highlight></td>
+          <td class="text-right"><ngb-highlight [result]="despesa.price | currency" [term]="filter.value"></ngb-highlight></td>
           <td>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-list cursor-pointer mr-3" 
                 viewBox="0 0 16 16" (click)="editaDespesa(despesa)">

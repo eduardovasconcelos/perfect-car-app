@@ -1,3 +1,6 @@
+import {LOCALE_ID, DEFAULT_CURRENCY_CODE} from '@angular/core';
+import localePt from '@angular/common/locales/pt';
+import {registerLocaleData} from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,6 +19,8 @@ import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap'
 import { MercadoriasListComponent } from './mercadorias-list/mercadorias-list.component';
 import { DespesasListComponent } from './despesas-list/despesas-list.component';
 import { ReceitasListComponent } from './receitas-list/receitas-list.component';
+
+registerLocaleData(localePt, 'pt');
 
 @NgModule({
   declarations: [
@@ -42,6 +47,14 @@ import { ReceitasListComponent } from './receitas-list/receitas-list.component';
     NgbAlertModule
   ],
   providers: [    
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt'
+    },
+    {
+      provide:  DEFAULT_CURRENCY_CODE,
+      useValue: 'BRL'
+    } 
   ],
   bootstrap: [AppComponent]
 })
