@@ -18,7 +18,7 @@ export class ReceitaComponent extends BaseComponent<Receita> implements OnInit {
      }
 
   ngOnInit(): void {
-    this.mensagem = false;
+    super.ngOnInit();
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {

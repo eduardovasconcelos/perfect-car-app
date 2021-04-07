@@ -19,6 +19,7 @@ export class MercadoriasComponent extends BaseComponent<Mercadoria> implements O
      }
 
   ngOnInit(): void {
+    super.ngOnInit();
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
