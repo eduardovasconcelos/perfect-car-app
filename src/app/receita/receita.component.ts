@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BaseComponent } from '../helpers/base.component';
 import { Receita } from '../model/receita';
 import { RestService } from '../rest.service';
 
@@ -8,14 +9,13 @@ import { RestService } from '../rest.service';
   templateUrl: './receita.component.html',
   styleUrls: ['./receita.component.css']
 })
-export class ReceitaComponent implements OnInit {
-  path = '/perfect-car/receitas/';  
+export class ReceitaComponent extends BaseComponent<Receita> implements OnInit {
   receita = {} as Receita;
-  isEdit: boolean = false;
-  mensagem: boolean;
 
-  constructor(private restService: RestService,
-    private route: ActivatedRoute) { }
+  constructor(restService: RestService,
+    route: ActivatedRoute) {
+      super(restService, route, '/perfect-car/receitas/');
+     }
 
   ngOnInit(): void {
     this.mensagem = false;
@@ -34,19 +34,6 @@ export class ReceitaComponent implements OnInit {
   }
 
   addReceita() {
-    if (this.isEdit) {
-      this.restService.patch(this.path, this.receita).subscribe(() => {
-        this.mensagem = true;
-      }, error => {
-        console.log('ERRO');
-      });
-    } else {
-      this.restService.post(this.path, this.receita).subscribe(() => {
-        this.mensagem = true;
-      }, error => {
-        console.log('ERRO');
-      });
-    }
-    this.receita = {} as Receita;
+    super.addEntity(this.receita);
   }
 }

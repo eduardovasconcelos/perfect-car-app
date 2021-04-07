@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BaseComponent } from '../helpers/base.component';
 import { Usuario } from '../model/usuario';
 import { RestService } from '../rest.service';
 
@@ -8,18 +9,17 @@ import { RestService } from '../rest.service';
   templateUrl: './usuarios.component.html',
   styleUrls: ['./usuarios.component.css']
 })
-export class UsuariosComponent implements OnInit {
+export class UsuariosComponent extends BaseComponent<Usuario> implements OnInit {
 
-  path = '/perfect-car/usuarios/';  
   usuario = {} as Usuario;
-  isEdit: boolean = false;
-  mensagem: boolean;
 
-  constructor(private restService: RestService,
-    private route: ActivatedRoute) { }
+  constructor(restService: RestService,
+    route: ActivatedRoute) { 
+      super(restService, route, '/perfect-car/usuarios/');
+    }
 
   ngOnInit(): void {
-    this.mensagem = false;
+    super.ngOnInit();
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
@@ -35,20 +35,6 @@ export class UsuariosComponent implements OnInit {
   }
 
   addUsuario() {
-    if (this.isEdit) {
-      this.restService.patch(this.path, this.usuario).subscribe(() => {
-        this.mensagem = true;
-      }, error => {
-        console.log('ERRO');
-      });
-    } else {
-      this.restService.post(this.path, this.usuario).subscribe(() => {
-        this.mensagem = true;
-      }, error => {
-        console.log('ERRO');
-      });
-    }
-
-    this.usuario = {} as Usuario;
+    super.addEntity(this.usuario);
   }
 }

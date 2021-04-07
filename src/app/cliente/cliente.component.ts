@@ -36,7 +36,6 @@ export class ClienteComponent extends BaseComponent<Cliente> implements OnInit {
 
   addCliente() {
     super.addEntity(this.cliente);
-    this.cliente = {} as Cliente;
   }
 
 }

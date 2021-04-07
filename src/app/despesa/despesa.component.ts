@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BaseComponent } from '../helpers/base.component';
 import { Despesa } from '../model/despesa';
 import { RestService } from '../rest.service';
 
@@ -8,18 +9,17 @@ import { RestService } from '../rest.service';
   templateUrl: './despesa.component.html',
   styleUrls: ['./despesa.component.css']
 })
-export class DespesaComponent implements OnInit {
+export class DespesaComponent extends BaseComponent<Despesa> implements OnInit {
 
-  path = '/perfect-car/despesas/';  
   despesa = {} as Despesa;
-  isEdit: boolean = false;
-  mensagem: boolean;
 
-  constructor(private restService: RestService,
-    private route: ActivatedRoute) { }
+  constructor(restService: RestService,
+    route: ActivatedRoute) {
+      super(restService, route, '/perfect-car/despesas/');
+     }
 
   ngOnInit(): void {
-    this.mensagem = false;
+    super.ngOnInit();
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
@@ -35,20 +35,7 @@ export class DespesaComponent implements OnInit {
    }
  
    addDespesa() {
-     if (this.isEdit) {
-       this.restService.patch(this.path, this.despesa).subscribe(() => {
-         this.mensagem = true;
-       }, error => {
-         console.log('ERRO');
-       });
-     } else {
-       this.restService.post(this.path, this.despesa).subscribe(() => {
-         this.mensagem = true;
-       }, error => {
-         console.log('ERRO');
-       });
-     }
-     this.despesa = {} as Despesa;
+    super.addEntity(this.despesa);
    }
 
 }

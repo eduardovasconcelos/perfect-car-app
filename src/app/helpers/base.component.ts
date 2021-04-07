@@ -45,5 +45,6 @@ export class BaseComponent<T> implements OnInit {
             console.log('ERRO');
           });
         }
-      }
+        entity = {} as T ;
+    }
 }

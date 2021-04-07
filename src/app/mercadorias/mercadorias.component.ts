@@ -2,21 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { RestService } from '../rest.service';
 import { Mercadoria } from '../model/mercadoria';
 import { ActivatedRoute } from '@angular/router';
+import { BaseComponent } from '../helpers/base.component';
 
 @Component({
   selector: 'app-mercadorias',
   templateUrl: './mercadorias.component.html',
   styleUrls: ['./mercadorias.component.css']
 })
-export class MercadoriasComponent implements OnInit {
+export class MercadoriasComponent extends BaseComponent<Mercadoria> implements OnInit {
 
-  path = '/perfect-car/mercadorias/';  
   mercadoria = {} as Mercadoria ;
-  isEdit: boolean = false;
-  mensagem: boolean = false;
 
-  constructor(private restService: RestService,
-    private route: ActivatedRoute) {
+  constructor(restService: RestService,
+    route: ActivatedRoute) {
+      super(restService, route, '/perfect-car/mercadorias/');
      }
 
   ngOnInit(): void {
@@ -35,20 +34,6 @@ export class MercadoriasComponent implements OnInit {
    }
  
    addMercadoria() {
-     if (this.isEdit) {
-       this.restService.patch(this.path, this.mercadoria).subscribe(() => {
-         this.mensagem = true;
-       }, error => {
-         console.log('ERRO');
-       });
-     } else {
-       this.restService.post(this.path, this.mercadoria).subscribe(() => {
-        this.mensagem = true;
-       }, error => {
-         console.log('ERRO');
-       });
-     }
-
-     this.mercadoria = {} as Mercadoria ;
+     super.addEntity(this.mercadoria);
    }
 }
