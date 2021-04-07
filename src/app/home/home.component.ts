@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UsuarioHelper } from '../helpers/usuario.helper';
 
 @Component({
   selector: 'app-home',
@@ -6,14 +8,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  
+  nomeCompleto: string;
+  isAdmin: boolean = false;
 
-  constructor() { }
-
+  constructor(private router: Router) { 
+  }
+  
   ngOnInit(): void {
+    if (!UsuarioHelper.usuario) {
+      this.router.navigate(['/login']);  
+    }
+  
+    if (UsuarioHelper.usuarioAdmin) {
+      this.isAdmin = true;
+    }
+    this.nomeCompleto = UsuarioHelper.usuarioNomeCompleto;
   }
 
   logout() {  
-    window.location.reload();
+    localStorage.removeItem('usuario');
+    localStorage.clear();
+    this.isAdmin = false;
+    this.router.navigate(['/login']);
   }
 
 }

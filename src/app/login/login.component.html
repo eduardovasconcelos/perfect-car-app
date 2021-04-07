@@ -8,9 +8,9 @@
     </div>
 
     <form method="post" action="login">
-        <input type="text" id="username" name="username" placeholder="login" maxlength="30" required>
-        <input type="password" id="password" name="password" placeholder="senha" maxlength="20" required>
-        <input type="submit" name="login" value="Entrar" (click)="doLogin()">
+        <input type="text" id="username" name="username" [(ngModel)]="username" placeholder="login" maxlength="30" required>
+        <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="senha" maxlength="20" required>
+        <input type="submit" name="login" value="Entrar" (click)="login()">
     </form>
 
     <div id="formFooter" *ngIf="error"> 

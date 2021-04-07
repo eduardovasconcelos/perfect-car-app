@@ -3,7 +3,7 @@ import localePt from '@angular/common/locales/pt';
 import {registerLocaleData} from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -19,6 +19,9 @@ import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap'
 import { MercadoriasListComponent } from './mercadorias-list/mercadorias-list.component';
 import { DespesasListComponent } from './despesas-list/despesas-list.component';
 import { ReceitasListComponent } from './receitas-list/receitas-list.component';
+import { AuthInterceptor } from './helpers/auth.interceptor';
+import { ClientesListComponent } from './clientes-list/clientes-list.component';
+import { ClienteComponent } from './cliente/cliente.component';
 
 registerLocaleData(localePt, 'pt');
 
@@ -34,7 +37,9 @@ registerLocaleData(localePt, 'pt');
     UsuariosListComponent,
     MercadoriasListComponent,
     DespesasListComponent,
-    ReceitasListComponent
+    ReceitasListComponent,
+    ClientesListComponent,
+    ClienteComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,8 @@ registerLocaleData(localePt, 'pt');
     NgbPaginationModule, 
     NgbAlertModule
   ],
-  providers: [    
+  providers: [   
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, 
     {
       provide: LOCALE_ID,
       useValue: 'pt'

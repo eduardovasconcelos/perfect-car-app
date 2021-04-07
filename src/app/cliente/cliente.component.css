@@ -1,0 +1,28 @@
+button, button:hover, button:visited, button:focus {
+    background-color: rgb(255, 95, 17);
+    border-color: rgb(255, 95, 17);
+}
+
+.margem-alerta {
+    margin-top: 4rem!important;
+}
+
+.tamanho-300 {
+    width: 300px;
+}
+
+.tamanho-160 {
+    width: 160px;
+}
+
+.tamanho-100 {
+    width: 100px;
+}
+
+.tamanho-80 {
+    width: 80px;
+}
+
+.tamanho-60 {
+    width: 60px;
+}

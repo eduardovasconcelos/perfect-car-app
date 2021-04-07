@@ -30,7 +30,6 @@ export class UsuariosComponent implements OnInit {
 
   findUsuario(id: string) {
    this.restService.get(this.path + id).subscribe((data) => {
-     console.log(data);
       this.usuario = data as Usuario;
    });
   }

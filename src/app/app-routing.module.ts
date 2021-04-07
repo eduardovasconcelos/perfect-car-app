@@ -11,6 +11,8 @@ import { UsuariosListComponent } from './usuarios-list/usuarios-list.component';
 import { MercadoriasListComponent } from './mercadorias-list/mercadorias-list.component';
 import { DespesasListComponent } from './despesas-list/despesas-list.component';
 import { ReceitasListComponent } from './receitas-list/receitas-list.component';
+import { ClientesListComponent } from './clientes-list/clientes-list.component';
+import { ClienteComponent } from './cliente/cliente.component';
 
 
 const routes: Routes = [
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path:"receitas-list", component : ReceitasListComponent },
   { path:"usuarios", component : UsuariosComponent },
   { path:"usuarios-list", component : UsuariosListComponent },
+  { path:"clientes", component : ClienteComponent },
+  { path:"clientes-list", component : ClientesListComponent },
   
 ];
 
