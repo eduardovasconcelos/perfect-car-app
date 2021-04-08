@@ -38,9 +38,13 @@
               <td class="text-center"><ngb-highlight [result]="dataInicial | date:'dd/MM/yyyy'"></ngb-highlight></td>
               <td class="text-center"><ngb-highlight [result]="dataFinal | date:'dd/MM/yyyy'"></ngb-highlight></td>
               <td class="text-center"><ngb-highlight [result]="balanco.totalPriceReceita | currency "></ngb-highlight></td>
-              <td class="text-center"><ngb-highlight [result]="balanco.receitas.length"></ngb-highlight></td>
+              <td class="text-center">
+                <a (click)="open(contentReceita)"><ngb-highlight [result]="balanco.receitas.length"></ngb-highlight></a>
+              </td>
               <td class="text-center"><ngb-highlight [result]="balanco.totalPriceDespesa | currency"></ngb-highlight></td>
-              <td class="text-center"><ngb-highlight [result]="balanco.despesas.length"></ngb-highlight></td>
+              <td class="text-center">
+                <a (click)="open(contentDespesa)"><ngb-highlight [result]="balanco.despesas.length"></ngb-highlight></a>
+              </td>
               <td class="text-right"><ngb-highlight [result]="balanco.totalPrice | currency"></ngb-highlight></td>
               <td>
               </td>
@@ -48,4 +52,61 @@
             </tbody>
           </table>
     </div>
+
+    <ng-template #contentReceita let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Receitas</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th scope="col" class="tamanho-160 text-left">Descrição</th>
+                <th scope="col" class="tamanho-80 text-right" >Valor</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let receita of balanco.receitas">
+                <td><ngb-highlight [result]="receita.description"></ngb-highlight></td>
+                <td class="text-right"><ngb-highlight [result]="receita.price | currency"></ngb-highlight></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+    </ng-template>
+
+    <ng-template #contentDespesa let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Despesas</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th scope="col" class="tamanho-160 text-left">Descrição</th>
+                <th scope="col" class="tamanho-80 text-right" >Valor</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let despesa of balanco.despesas">
+                <td><ngb-highlight [result]="despesa.description"></ngb-highlight></td>
+                <td class="text-right"><ngb-highlight [result]="despesa.price | currency"></ngb-highlight></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+    </ng-template>
+    
+    
+
 </div>

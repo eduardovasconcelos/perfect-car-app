@@ -4,6 +4,7 @@ import { Mercadoria } from "./mercadoria";
 export interface OrdemServico {
     id: number;
     client: Cliente;
-    mercadoria: Mercadoria
-    price: number;
+    mercadorias: Mercadoria[];
+    totalPrice: number;
+    created: string;
 }

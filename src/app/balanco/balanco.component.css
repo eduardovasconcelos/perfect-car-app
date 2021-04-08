@@ -1,3 +1,9 @@
 .tamanho-200 {
     width: 200px;
 }
+
+a {
+    cursor: pointer;
+    text-decoration: underline !important;
+    color:blue !important;
+}
