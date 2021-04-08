@@ -11,23 +11,23 @@ export class RestService {
   constructor(private http: HttpClient) { }
 
   get(url: string) {
-    url = this.apiUrl + url;
+    //url = this.apiUrl + url;
     return this.http.get(url);
   }
 
   post(url: string, parametros: any) {
-    url = this.apiUrl + url;
+    //url = this.apiUrl + url;
     return this.http.post(url, parametros);
   }
 
   delete(url: string) {
-    url = this.apiUrl + url;
+    //url = this.apiUrl + url;
     return this.http.delete(url);
   }
 
   
   patch(url: string, parametros: any) {
-    url = this.apiUrl + url;
+    //url = this.apiUrl + url;
     return this.http.patch(url, parametros);
   }
 
