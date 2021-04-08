@@ -23,14 +23,6 @@ export class BaseComponent<T> implements OnInit {
         this.mensagem = false;
     }
 
-    buscaEntities() : any {
-        this.restService.get(this.path).subscribe((data) => {      
-            return data;
-        }, error => {
-            return error;
-        });
-      }
-
     addEntity(entity: T) {
         if (this.isEdit) {
           this.restService.patch(this.path, entity).subscribe(() => {

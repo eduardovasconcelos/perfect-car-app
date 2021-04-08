@@ -22,6 +22,8 @@ import { ReceitasListComponent } from './receitas-list/receitas-list.component';
 import { AuthInterceptor } from './helpers/auth.interceptor';
 import { ClientesListComponent } from './clientes-list/clientes-list.component';
 import { ClienteComponent } from './cliente/cliente.component';
+import { OrdemServicoComponent } from './ordem-servico/ordem-servico.component';
+import { OrdemServicoListComponent } from './ordem-servico-list/ordem-servico-list.component';
 
 registerLocaleData(localePt, 'pt');
 
@@ -39,7 +41,9 @@ registerLocaleData(localePt, 'pt');
     DespesasListComponent,
     ReceitasListComponent,
     ClientesListComponent,
-    ClienteComponent
+    ClienteComponent,
+    OrdemServicoComponent,
+    OrdemServicoListComponent
   ],
   imports: [
     BrowserModule,

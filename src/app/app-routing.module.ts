@@ -13,6 +13,8 @@ import { DespesasListComponent } from './despesas-list/despesas-list.component';
 import { ReceitasListComponent } from './receitas-list/receitas-list.component';
 import { ClientesListComponent } from './clientes-list/clientes-list.component';
 import { ClienteComponent } from './cliente/cliente.component';
+import { OrdemServicoComponent } from './ordem-servico/ordem-servico.component';
+import { OrdemServicoListComponent } from './ordem-servico-list/ordem-servico-list.component';
 
 
 const routes: Routes = [
@@ -29,6 +31,8 @@ const routes: Routes = [
   { path:"usuarios-list", component : UsuariosListComponent },
   { path:"clientes", component : ClienteComponent },
   { path:"clientes-list", component : ClientesListComponent },
+  { path:"ordem-servico", component : OrdemServicoComponent },
+  { path:"ordem-servico-list", component : OrdemServicoListComponent },
   
 ];
 
