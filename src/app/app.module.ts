@@ -24,6 +24,7 @@ import { ClientesListComponent } from './clientes-list/clientes-list.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { OrdemServicoComponent } from './ordem-servico/ordem-servico.component';
 import { OrdemServicoListComponent } from './ordem-servico-list/ordem-servico-list.component';
+import { BalancoComponent } from './balanco/balanco.component';
 
 registerLocaleData(localePt, 'pt');
 
@@ -43,7 +44,8 @@ registerLocaleData(localePt, 'pt');
     ClientesListComponent,
     ClienteComponent,
     OrdemServicoComponent,
-    OrdemServicoListComponent
+    OrdemServicoListComponent,
+    BalancoComponent
   ],
   imports: [
     BrowserModule,
